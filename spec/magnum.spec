@@ -72,7 +72,6 @@ make %{?_smp_mflags}
 rm -rf $RPM_BUILD_ROOT
 cd build
 make DESTDIR=$RPM_BUILD_ROOT install
-strip $RPM_BUILD_ROOT/%{_prefix}/lib*/*.a
 strip $RPM_BUILD_ROOT/%{_prefix}/lib*/magnum/audioimporters/*.so
 strip $RPM_BUILD_ROOT/%{_prefix}/lib*/magnum/fontconverters/*.so
 strip $RPM_BUILD_ROOT/%{_prefix}/lib*/magnum/fonts/*.so
