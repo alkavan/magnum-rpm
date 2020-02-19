@@ -8,12 +8,6 @@ BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:   magnum = %{version}, magnum-plugins = %{version}, magnum-integration = %{version}, magnum-extras = %{version}
 BuildRequires: cmake, git, gcc-c++
 
-%if %{defined suse_version}
-Group:      System/Libraries
-%else
-Group:      System Environment/Libraries
-%endif
-
 %description
 Here are various examples for the Magnum C++11/C++14 graphics engine, demonstrating its features, usage and capabilities.
 

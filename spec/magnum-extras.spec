@@ -8,23 +8,12 @@ BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:   magnum = %{version}
 BuildRequires: cmake, git, gcc-c++
 
-%if %{defined suse_version}
-Group:      System/Libraries
-%else
-Group:      System Environment/Libraries
-%endif
-
 %description
 Here you find extra functionality for the Magnum C++11/C++14 graphics engine -
 playground for testing new APIs, specialized stuff that doesn't necessarily need to be a part
 of main Magnum repository or mutually exclusive functionality.
 
 %package devel
-%if %{defined suse_version}
-Group: Development/Libraries/C and C++
-%else
-Group: Development/Libraries
-%endif
 Summary: MagnumIntegration development files
 Requires: %{name} = %{version}
 

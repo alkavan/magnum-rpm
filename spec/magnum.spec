@@ -8,12 +8,6 @@ BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:   corrade = %{version}, openal-soft, mesa-libGL, mesa-libEGL, SDL2
 BuildRequires: openal-soft-devel, mesa-libGL-devel, mesa-libEGL-devel, SDL2-devel
 
-%if %{defined suse_version}
-Group:      System/Libraries
-%else
-Group:      System Environment/Libraries
-%endif
-
 %description
 Looking for an open-source library that gives you graphics abstraction
 and platform independence on major desktop, mobile and web platforms?
@@ -22,11 +16,6 @@ powerful and not give up on flexibility?
 Website: http://magnum.graphics
 
 %package devel
-%if %{defined suse_version}
-Group: Development/Libraries/C and C++
-%else
-Group: Development/Libraries
-%endif
 Summary: Magnum development files
 Requires: %{name} = %{version}
 

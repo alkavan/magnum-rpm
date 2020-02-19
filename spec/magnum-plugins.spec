@@ -8,22 +8,11 @@ BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:   magnum = %{version}, DevIL, libpng, libjpeg-turbo, freetype, assimp
 BuildRequires: cmake, git, gcc-c++, DevIL-devel, libpng-devel, libjpeg-turbo-devel, freetype-devel, assimp-devel
 
-%if %{defined suse_version}
-Group:      System/Libraries
-%else
-Group:      System Environment/Libraries
-%endif
-
 %description
 Here are various plugins for the Magnum C++11/C++14 graphics engine -
 asset import and conversion, text rendering and more.
 
 %package devel
-%if %{defined suse_version}
-Group: Development/Libraries/C and C++
-%else
-Group: Development/Libraries
-%endif
 Summary: MagnumPlugins development files
 Requires: %{name} = %{version}
 

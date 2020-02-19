@@ -8,22 +8,12 @@ BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:   magnum = %{version}, bullet, bullet-extras
 BuildRequires: cmake, git, gcc-c++, bullet-devel, bullet-devel
 
-%if %{defined suse_version}
-Group:      System/Libraries
-%else
-Group:      System Environment/Libraries
-%endif
 
 %description
 Here are integration libraries for Magnum C++11/C++14 graphics engine,
 providing integration of various math and physics libraries into the engine itself.
 
 %package devel
-%if %{defined suse_version}
-Group: Development/Libraries/C and C++
-%else
-Group: Development/Libraries
-%endif
 Summary: MagnumIntegration development files
 Requires: %{name} = %{version}
 

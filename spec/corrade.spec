@@ -7,22 +7,11 @@ Source:     https://github.com/mosra/%{name}/archive/v%{version}.tar.gz#/%{name}
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: cmake, git, gcc-c++
 
-%if %{defined suse_version}
-Group:      System/Libraries
-%else
-Group:      System Environment/Libraries
-%endif
-
 %description
 Provides debugging, portability, configuration, resource management and
 filesystem utilites and plugin management with dependency handling.
 
 %package devel
-%if %{defined suse_version}
-Group: Development/Libraries/C and C++
-%else
-Group: Development/Libraries
-%endif
 Summary: Corrade development files
 Requires: %{name} = %{version}
 
