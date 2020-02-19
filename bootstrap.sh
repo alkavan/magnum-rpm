@@ -1,42 +1,44 @@
 #!/bin/bash
 
-# RUN AS ROOT USER!
+MAGNUM_VERSION="2019.10"
 
-dnf group install -y 'Development Tools'
-dnf install -y fedora-packager rpmdevtools
-
-dnf builddep -y spec/corrade.spec
-dnf builddep -y spec/magnum.spec
-dnf builddep -y spec/magnum-plugins.spec
-dnf builddep -y spec/magnum-integration.spec
-dnf builddep -y spec/magnum-extras.spec
-dnf builddep -y spec/magnum-examples.spec
-
+# corrade
+sudo dnf builddep -y spec/corrade.spec
 rpmbuild --undefine=_disable_source_fetch --define "debug_package %{nil}" -ba spec/corrade.spec
-dnf install -y ~/rpmbuild/RPMS/x86_64/corrade-2018.04-1.x86_64.rpm
-dnf install -y ~/rpmbuild/RPMS/x86_64/corrade-devel-2018.04-1.x86_64.rpm
+sudo dnf install -y ~/rpmbuild/RPMS/x86_64/corrade-${MAGNUM_VERSION}-1.x86_64.rpm
+sudo dnf install -y ~/rpmbuild/RPMS/x86_64/corrade-devel-${MAGNUM_VERSION}-1.x86_64.rpm
 rpmbuild --clean spec/corrade.spec
 
+# magnum
+sudo dnf builddep -y spec/magnum.spec
 rpmbuild --undefine=_disable_source_fetch --define "debug_package %{nil}" -ba spec/magnum.spec
-dnf install -y ~/rpmbuild/RPMS/x86_64/magnum-2018.04-1.x86_64.rpm
-dnf install -y ~/rpmbuild/RPMS/x86_64/magnum-devel-2018.04-1.x86_64.rpm
+sudo dnf install -y ~/rpmbuild/RPMS/x86_64/magnum-${MAGNUM_VERSION}-1.x86_64.rpm
+sudo dnf install -y ~/rpmbuild/RPMS/x86_64/magnum-devel-${MAGNUM_VERSION}-1.x86_64.rpm
 rpmbuild --clean spec/magnum.spec
 
+# magnum-plugins
+sudo dnf builddep -y spec/magnum-plugins.spec
 rpmbuild --undefine=_disable_source_fetch --define "debug_package %{nil}" -ba spec/magnum-plugins.spec
-dnf install -y ~/rpmbuild/RPMS/x86_64/magnum-plugins-2018.04-1.x86_64.rpm
-dnf install -y ~/rpmbuild/RPMS/x86_64/magnum-plugins-devel-2018.04-1.x86_64.rpm
+sudo dnf install -y ~/rpmbuild/RPMS/x86_64/magnum-plugins-${MAGNUM_VERSION}-1.x86_64.rpm
+sudo dnf install -y ~/rpmbuild/RPMS/x86_64/magnum-plugins-devel-${MAGNUM_VERSION}-1.x86_64.rpm
 rpmbuild --clean spec/magnum-plugins.spec
 
+# magnum-integration
+sudo dnf builddep -y spec/magnum-integration.spec
 rpmbuild --undefine=_disable_source_fetch --define "debug_package %{nil}" -ba spec/magnum-integration.spec
-dnf install -y ~/rpmbuild/RPMS/x86_64/magnum-integration-2018.04-1.x86_64.rpm
-dnf install -y ~/rpmbuild/RPMS/x86_64/magnum-integration-devel-2018.04-1.x86_64.rpm
+sudo dnf install -y ~/rpmbuild/RPMS/x86_64/magnum-integration-${MAGNUM_VERSION}-1.x86_64.rpm
+sudo dnf install -y ~/rpmbuild/RPMS/x86_64/magnum-integration-devel-${MAGNUM_VERSION}-1.x86_64.rpm
 rpmbuild --clean spec/magnum-integration.spec
 
+# magnum-extras
+sudo dnf builddep -y spec/magnum-extras.spec
 rpmbuild --undefine=_disable_source_fetch --define "debug_package %{nil}" -ba spec/magnum-extras.spec
-dnf install -y ~/rpmbuild/RPMS/x86_64/magnum-extras-2018.04-1.x86_64.rpm
-dnf install -y ~/rpmbuild/RPMS/x86_64/magnum-extras-devel-2018.04-1.x86_64.rpm
+sudo dnf install -y ~/rpmbuild/RPMS/x86_64/magnum-extras-${MAGNUM_VERSION}-1.x86_64.rpm
+sudo dnf install -y ~/rpmbuild/RPMS/x86_64/magnum-extras-devel-${MAGNUM_VERSION}-1.x86_64.rpm
 rpmbuild --clean spec/magnum-extras.spec
 
+# magnum-examples
+sudo dnf builddep -y spec/magnum-examples.spec
 rpmbuild --undefine=_disable_source_fetch --define "debug_package %{nil}" -ba spec/magnum-examples.spec
-dnf install -y ~/rpmbuild/RPMS/x86_64/magnum-examples-2018.04-1.x86_64.rpm
+sudo dnf install -y ~/rpmbuild/RPMS/x86_64/magnum-examples-${MAGNUM_VERSION}-1.x86_64.rpm
 rpmbuild --clean spec/magnum-examples.spec

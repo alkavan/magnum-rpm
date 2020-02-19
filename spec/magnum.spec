@@ -1,11 +1,11 @@
 Name:       magnum
-Version:    2018.04
+Version:    2019.10
 Release:    1
 Summary:    C++11/C++14 graphics middleware for games and data visualization
 License:    MIT
 Source:     https://github.com/mosra/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Requires:   corrade = 2018.04, openal-soft, mesa-libGL, mesa-libEGL, SDL2
+Requires:   corrade = %{version}, openal-soft, mesa-libGL, mesa-libEGL, SDL2
 BuildRequires: openal-soft-devel, mesa-libGL-devel, mesa-libEGL-devel, SDL2-devel
 
 %if %{defined suse_version}

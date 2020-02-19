@@ -1,11 +1,11 @@
 Name:       magnum-examples
-Version:    2018.04
+Version:    2019.10
 Release:    1
 Summary:    Examples for the Magnum C++11/C++14 graphics engine
 License:    MIT
 Source:     https://github.com/mosra/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Requires:   magnum = 2018.04, magnum-plugins = 2018.04, magnum-integration = 2018.04, magnum-extras = 2018.04, bullet, bullet-extras, openal-soft
+Requires:   magnum = %{version}, magnum-plugins = %{version}, magnum-integration = %{version}, magnum-extras = %{version}
 BuildRequires: cmake, git, gcc-c++
 
 %if %{defined suse_version}

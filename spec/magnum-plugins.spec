@@ -1,11 +1,11 @@
 Name:       magnum-plugins
-Version:    2018.04
+Version:    2019.10
 Release:    1
 Summary:    Plugins for the Magnum C++11/C++14 graphics engine
 License:    MIT
 Source:     https://github.com/mosra/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Requires:   magnum = 2018.04, DevIL, libpng, libjpeg-turbo, freetype, assimp
+Requires:   magnum = %{version}, DevIL, libpng, libjpeg-turbo, freetype, assimp
 BuildRequires: cmake, git, gcc-c++, DevIL-devel, libpng-devel, libjpeg-turbo-devel, freetype-devel, assimp-devel
 
 %if %{defined suse_version}
@@ -84,6 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib*/magnum/*/*
 %{_prefix}/include/MagnumPlugins
 %{_prefix}/include/Magnum/OpenDdl
+%{_prefix}/include/MagnumExternal
 %{_prefix}/share/cmake/MagnumPlugins
 #%doc COPYING COPYING.LESSER
 

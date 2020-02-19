@@ -1,5 +1,5 @@
 Name:       corrade
-Version:    2018.04
+Version:    2019.10
 Release:    1
 Summary:    C++11/C++14 multiplatform utility library
 License:    MIT
