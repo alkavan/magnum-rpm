@@ -5,9 +5,8 @@ Summary:    Integration libraries for the Magnum C++11/C++14 graphics engine
 License:    MIT
 Source:     https://github.com/mosra/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Requires:   magnum = %{version}, bullet, bullet-extras
-BuildRequires: cmake, git, gcc-c++, bullet-devel, bullet-devel
-
+Requires:   magnum = %{version}, bullet, bullet-extras, eigen3
+BuildRequires: cmake, git, gcc-c++, bullet-devel, eigen3-devel glm-devel
 
 %description
 Here are integration libraries for Magnum C++11/C++14 graphics engine,
@@ -30,6 +29,8 @@ cmake ../%{name}-%{version} \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=%{_prefix} \
     -DWITH_BULLET=ON \
+    -DWITH_EIGEN=ON \
+    -DWITH_GLM=ON \
     -DWITH_DART=OFF \
     -DOpenGL_GL_PREFERENCE=GLVND
 
