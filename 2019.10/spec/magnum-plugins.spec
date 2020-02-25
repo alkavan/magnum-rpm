@@ -7,6 +7,7 @@ Source:     https://github.com/mosra/%{name}/archive/v%{version}.tar.gz#/%{name}
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:   magnum = %{version}, DevIL, libpng, libjpeg-turbo, freetype, assimp, faad2-libs
 BuildRequires: cmake, git, gcc-c++, DevIL-devel, libpng-devel, libjpeg-turbo-devel, freetype-devel, assimp-devel, faad2-devel
+Source1: https://github.com/BinomialLLC/basis_universal/archive/master.zip
 
 %description
 Here are various plugins for the Magnum C++11/C++14 graphics engine -
@@ -23,14 +24,19 @@ Headers and tools needed for the Magnum plugins collection.
 %setup -c -n %{name}-%{version}
 
 %build
+unzip %{SOURCE1} -d %{_builddir}
+
 mkdir build && cd build
 # Configure CMake
 cmake ../%{name}-%{version} \
   -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_INSTALL_PREFIX=%{_prefix} \
+  -DBASIS_UNIVERSAL_DIR=%{_builddir}/basis_universal-master \
   -DBUILD_TESTS=ON \
   -DBUILD_GL_TESTS=ON \
   -DWITH_ASSIMPIMPORTER=ON \
+  -DWITH_BASISIMPORTER=ON \
+  -DWITH_BASISIMAGECONVERTER=ON \
   -DWITH_DDSIMPORTER=ON \
   -DWITH_DEVILIMAGEIMPORTER=ON \
   -DWITH_DRFLACAUDIOIMPORTER=ON \
@@ -52,10 +58,6 @@ cmake ../%{name}-%{version} \
   -DWITH_STBVORBISAUDIOIMPORTER=ON \
   -DWITH_TINYGLTFIMPORTER=ON
 
-#  -DBASIS_UNIVERSAL_DIR=/opt/basis-universal \
-#  -DWITH_BASISIMPORTER=ON \
-#  -DWITH_BASISIMAGECONVERTER=ON \
-
 make %{?_smp_mflags}
 
 %install
@@ -70,6 +72,7 @@ strip $RPM_BUILD_ROOT/%{_libdir}/*/*/*.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+rm -rf %{_builddir}/basis_universal-master
 
 %files
 %defattr(-,root,root,-)
