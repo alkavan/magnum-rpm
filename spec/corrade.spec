@@ -34,7 +34,8 @@ make %{?_smp_mflags}
 rm -rf $RPM_BUILD_ROOT
 cd build
 make DESTDIR=$RPM_BUILD_ROOT install
-strip $RPM_BUILD_ROOT/%{_prefix}/lib*/* $RPM_BUILD_ROOT/%{_prefix}/bin/*
+strip $RPM_BUILD_ROOT/%{_libdir}/*.so*
+strip $RPM_BUILD_ROOT/%{_bindir}/*
 
 %post -p /sbin/ldconfig
 
@@ -45,15 +46,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%{_prefix}/lib*/*.so*
+%{_libdir}/*.so*
 #%doc COPYING COPYING.LESSER
 
 %files devel
 %defattr(-,root,root,-)
-%{_prefix}/lib*/*.so*
-%{_prefix}/bin/corrade-rc
-%{_prefix}/include/Corrade
-%{_prefix}/share/cmake/Corrade
+%{_bindir}/corrade-rc
+%{_includedir}/Corrade
+%{_datadir}/cmake/Corrade
+
 #%doc COPYING COPYING.LESSER
 
 %changelog

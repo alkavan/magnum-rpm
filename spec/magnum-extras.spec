@@ -27,10 +27,13 @@ Headers and tools needed for extra functionality for the Magnum C++11/C++14 grap
 mkdir build && cd build
 # Configure CMake
 cmake ../%{name}-%{version} \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_INSTALL_PREFIX=%{_prefix} \
-    -DWITH_UI=ON \
-    -DWITH_UI_GALLERY=ON
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_INSTALL_PREFIX=%{_prefix} \
+  -DBUILD_TESTS=ON \
+  -DBUILD_GL_TESTS=ON \
+  -DWITH_PLAYER=ON \
+  -DWITH_UI=ON \
+  -DWITH_UI_GALLERY=ON
 
 make %{?_smp_mflags}
 
@@ -38,7 +41,8 @@ make %{?_smp_mflags}
 rm -rf $RPM_BUILD_ROOT
 cd build
 make DESTDIR=$RPM_BUILD_ROOT install
-strip $RPM_BUILD_ROOT/%{_prefix}/lib*/*
+strip $RPM_BUILD_ROOT/%{_libdir}/*.so*
+strip $RPM_BUILD_ROOT/%{_bindir}/*
 
 %post -p /sbin/ldconfig
 
@@ -49,15 +53,17 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%{_prefix}/lib*/*.so*
+%{_libdir}/*.so*
+
 #%doc COPYING COPYING.LESSER
 
 %files devel
 %defattr(-,root,root,-)
-%{_prefix}/lib*/*.so*
-%{_prefix}/bin/magnum-ui-gallery
-%{_prefix}/include/Magnum
-%{_prefix}/share/cmake/MagnumExtras
+%{_bindir}/*
+%{_includedir}/Magnum
+%{_datadir}/cmake/MagnumExtras
+%{_datadir}/applications/magnum-player.desktop
+
 #%doc COPYING COPYING.LESSER
 
 %changelog
