@@ -1,0 +1,72 @@
+%define commit 4b9e29dcf30b49fc046b11ac016d0f1de228c796
+
+Name:       magnum-extras
+Version:    2020.04a
+Release:    1
+Summary:    Extras for the Magnum C++11/C++14 graphics engine
+License:    MIT
+Source:     https://github.com/mosra/%{name}/archive/%{commit}.zip
+BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Requires:   magnum = %{version}
+BuildRequires: cmake, git, gcc-c++
+
+%description
+Here you find extra functionality for the Magnum C++11/C++14 graphics engine -
+playground for testing new APIs, specialized stuff that doesn't necessarily need to be a part
+of main Magnum repository or mutually exclusive functionality.
+
+%package devel
+Summary: MagnumIntegration development files
+Requires: %{name} = %{version}
+
+%description devel
+Headers and tools needed for extra functionality for the Magnum C++11/C++14 graphics engine.
+
+%prep
+%setup -c -n %{name}-%{version}
+
+%build
+mkdir build && cd build
+# Configure CMake
+cmake ../%{name}-%{commit} \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_INSTALL_PREFIX=%{_prefix} \
+  -DBUILD_TESTS=ON \
+  -DBUILD_GL_TESTS=ON \
+  -DWITH_PLAYER=ON \
+  -DWITH_UI=ON \
+  -DWITH_UI_GALLERY=ON
+
+make %{?_smp_mflags}
+
+%install
+rm -rf $RPM_BUILD_ROOT
+cd build
+make DESTDIR=$RPM_BUILD_ROOT install
+strip $RPM_BUILD_ROOT/%{_libdir}/*.so*
+strip $RPM_BUILD_ROOT/%{_bindir}/*
+
+%post -p /sbin/ldconfig
+
+%postun -p /sbin/ldconfig
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(-,root,root,-)
+%{_libdir}/*.so*
+
+#%doc COPYING COPYING.LESSER
+
+%files devel
+%defattr(-,root,root,-)
+%{_bindir}/*
+%{_includedir}/Magnum
+%{_datadir}/cmake/MagnumExtras
+%{_datadir}/applications/magnum-player.desktop
+
+#%doc COPYING COPYING.LESSER
+
+%changelog
+# TODO: changelog
