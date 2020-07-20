@@ -32,13 +32,13 @@ cmake ../%{name}-%{version} \
   -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_INSTALL_PREFIX=%{_prefix} \
   -DIMGUI_DIR=%{_builddir}/imgui-1.74 \
-  -DBUILD_TESTS=ON \
-  -DBUILD_GL_TESTS=ON \
   -DWITH_BULLET=ON \
   -DWITH_DART=OFF \
   -DWITH_EIGEN=ON \
   -DWITH_GLM=ON \
   -DWITH_IMGUI=ON \
+  -DBUILD_TESTS=ON \
+  -DBUILD_GL_TESTS=ON \
   -DOpenGL_GL_PREFERENCE=GLVND
 
 make %{?_smp_mflags}

@@ -26,7 +26,8 @@ mkdir build && cd build
 # Configure CMake
 cmake ../%{name}-%{version} \
     -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_INSTALL_PREFIX=%{_prefix}
+    -DCMAKE_INSTALL_PREFIX=%{_prefix} \
+    -DBUILD_TESTS=ON
 
 make %{?_smp_mflags}
 
