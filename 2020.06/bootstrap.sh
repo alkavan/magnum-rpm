@@ -1,6 +1,5 @@
 #!/bin/bash
 
-MESHOPTIMIZER_VERSION="0.14"
 MAGNUM_VERSION="2020.06"
 
 # corrade
@@ -14,11 +13,6 @@ sudo dnf builddep -y spec/magnum.spec
 rpmbuild --undefine=_disable_source_fetch --define "debug_package %{nil}" --clean -ba spec/magnum.spec
 sudo dnf install -y ~/rpmbuild/RPMS/x86_64/magnum-${MAGNUM_VERSION}-1.x86_64.rpm
 sudo dnf install -y ~/rpmbuild/RPMS/x86_64/magnum-devel-${MAGNUM_VERSION}-1.x86_64.rpm
-
-# meshoptimizer (optional)
-sudo dnf builddep -y spec/meshoptimizer.spec
-rpmbuild --undefine=_disable_source_fetch --define "debug_package %{nil}" --clean -ba spec/meshoptimizer.spec
-sudo dnf install -y ~/rpmbuild/RPMS/x86_64/meshoptimizer-${MESHOPTIMIZER_VERSION}-1.x86_64.rpm
 
 # magnum-plugins
 sudo dnf builddep -y spec/magnum-plugins.spec

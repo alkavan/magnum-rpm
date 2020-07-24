@@ -5,9 +5,10 @@ Summary:    Plugins for the Magnum C++11/C++14 graphics engine
 License:    MIT
 Source:     https://github.com/mosra/%{name}/archive/v%{version}.tar.gz
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Requires:   magnum = %{version}, DevIL, libpng, libjpeg-turbo, freetype, assimp, faad2-libs, meshoptimizer
+Requires:   magnum = %{version}, DevIL, libpng, libjpeg-turbo, freetype, assimp, faad2-libs
 BuildRequires: cmake, git, gcc-c++, DevIL-devel, libpng-devel, libjpeg-turbo-devel, freetype-devel, assimp-devel, faad2-devel, harfbuzz-devel
 Source1: https://github.com/BinomialLLC/basis_universal/archive/2f43afcc97d0a5dafdb73b4e24e123cf9687a418.zip
+Source2: https://github.com/zeux/meshoptimizer/archive/v0.14.zip
 
 %description
 Here are various plugins for the Magnum C++11/C++14 graphics engine -
@@ -25,6 +26,9 @@ Headers and tools needed for the Magnum plugins collection.
 
 %build
 unzip %{SOURCE1} -d %{_builddir}/
+unzip %{SOURCE2} -d %{_builddir}/
+
+mv %{_builddir}/meshoptimizer-0.14 %{name}-%{version}/src/external/meshoptimizer
 
 mkdir build && cd build
 # Configure CMake
