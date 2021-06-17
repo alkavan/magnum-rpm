@@ -3,7 +3,7 @@ Version:    master
 Release:    1
 Summary:    C++11/C++14 multiplatform utility library
 License:    MIT
-Source:     https://github.com/mosra/%{name}/archive/master.tar.gz#/%{name}-%{version}.tar.gz
+Source:     https://github.com/mosra/%{name}/archive/%{version}.tar.gz#/%{name}-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: cmake, git, gcc-c++
 
@@ -25,7 +25,7 @@ Headers and tools needed for developing with Corrade.
 mkdir build && cd build
 # Configure CMake
 cmake ../%{name}-%{version} \
-    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_BUILD_TYPE=Debug \
     -DCMAKE_INSTALL_PREFIX=%{_prefix} \
     -DBUILD_TESTS=ON
 

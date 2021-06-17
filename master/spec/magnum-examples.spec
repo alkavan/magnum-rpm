@@ -21,7 +21,7 @@ unzip %{SOURCE1} -d %{_builddir}
 mkdir build && cd build
 # Configure CMake
 cmake ../%{name}-%{version} \
-  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_BUILD_TYPE=Debug \
   -DCMAKE_INSTALL_PREFIX=%{_prefix} \
   -DIMGUI_DIR=%{_builddir}/imgui-1.79 \
   -DWITH_ANIMATED_GIF_EXAMPLE=ON \
@@ -46,7 +46,7 @@ cmake ../%{name}-%{version} \
   -DWITH_TEXTUREDTRIANGLE_EXAMPLE=ON \
   -DWITH_TRIANGLE_EXAMPLE=ON \
   -DWITH_TRIANGLE_PLAIN_GLFW_EXAMPLE=ON \
-  -DWITH_TRIANGLE_SOKOL_EXAMPLE=ON \
+  -DWITH_TRIANGLE_SOKOL_EXAMPLE=OFF \
   -DWITH_TRIANGLE_VULKAN_EXAMPLE=ON \
   -DWITH_VIEWER_EXAMPLE=ON
 

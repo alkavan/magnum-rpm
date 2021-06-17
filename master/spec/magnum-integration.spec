@@ -29,7 +29,7 @@ unzip %{SOURCE1} -d %{_builddir}
 mkdir build && cd build
 # Configure CMake
 cmake ../%{name}-%{version} \
-  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_BUILD_TYPE=Debug \
   -DCMAKE_INSTALL_PREFIX=%{_prefix} \
   -DIMGUI_DIR=%{_builddir}/imgui-1.79 \
   -DWITH_BULLET=ON \

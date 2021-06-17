@@ -33,7 +33,7 @@ mv %{_builddir}/meshoptimizer-0.15 %{name}-%{version}/src/external/meshoptimizer
 mkdir build && cd build
 # Configure CMake
 cmake ../%{name}-%{version} \
-  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_BUILD_TYPE=Debug \
   -DCMAKE_INSTALL_PREFIX=%{_prefix} \
   -DBASIS_UNIVERSAL_DIR=%{_builddir}/basis_universal-2f43afcc97d0a5dafdb73b4e24e123cf9687a418 \
   -DBUILD_TESTS=ON \
@@ -75,7 +75,8 @@ make %{?_smp_mflags}
 rm -rf $RPM_BUILD_ROOT
 cd build
 make DESTDIR=$RPM_BUILD_ROOT install
-strip $RPM_BUILD_ROOT/%{_libdir}/*/*/*.so
+strip $RPM_BUILD_ROOT/%{_libdir}/*.so*
+strip $RPM_BUILD_ROOT/%{_libdir}/magnum-d/*/*.so*
 
 %post -p /sbin/ldconfig
 
@@ -88,7 +89,7 @@ rm -rf %{_builddir}/basis_universal-2f43afcc97d0a5dafdb73b4e24e123cf9687a418
 %files
 %defattr(-,root,root,-)
 %{_libdir}/*.so*
-%{_libdir}/magnum/*/*
+%{_libdir}/magnum-d/*/*
 
 #%doc COPYING
 

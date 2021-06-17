@@ -27,7 +27,7 @@ Headers and tools needed for extra functionality for the Magnum C++11/C++14 grap
 mkdir build && cd build
 # Configure CMake
 cmake ../%{name}-%{version} \
-  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_BUILD_TYPE=Debug \
   -DCMAKE_INSTALL_PREFIX=%{_prefix} \
   -DBUILD_TESTS=ON \
   -DBUILD_GL_TESTS=ON \

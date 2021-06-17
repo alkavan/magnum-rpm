@@ -30,7 +30,7 @@ mkdir build && cd build
 
 # Configure CMake
 cmake ../%{name}-%{version} \
-  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_BUILD_TYPE=Debug \
   -DCMAKE_INSTALL_PREFIX=%{_prefix} \
   -DWITH_AUDIO=ON \
   -DWITH_VK=ON \
@@ -74,7 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 cd build
 make DESTDIR=$RPM_BUILD_ROOT install
 strip $RPM_BUILD_ROOT/%{_libdir}/*.so*
-strip $RPM_BUILD_ROOT/%{_libdir}/magnum/*/*.so*
+strip $RPM_BUILD_ROOT/%{_libdir}/magnum-d/*/*.so*
 strip $RPM_BUILD_ROOT/%{_bindir}/*
 
 %post -p /sbin/ldconfig
@@ -88,8 +88,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %{_libdir}/*.a
 %{_libdir}/*.so*
-%{_libdir}/magnum/*/*.so*
-%{_libdir}/magnum/*/*.conf
+%{_libdir}/magnum-d/*/*.so*
+%{_libdir}/magnum-d/*/*.conf
 
 #%doc COPYING
 
