@@ -29,11 +29,11 @@ mkdir build && cd build
 cmake ../%{name}-%{version} \
   -DCMAKE_BUILD_TYPE=Debug \
   -DCMAKE_INSTALL_PREFIX=%{_prefix} \
-  -DBUILD_TESTS=ON \
-  -DBUILD_GL_TESTS=ON \
-  -DWITH_PLAYER=ON \
-  -DWITH_UI=ON \
-  -DWITH_UI_GALLERY=ON
+  -DMAGNUM_WITH_PLAYER=ON \
+  -DMAGNUM_WITH_UI=ON \
+  -DMAGNUM_WITH_UI_GALLERY=ON \
+  -DMAGNUM_BUILD_TESTS=ON \
+  -DMAGNUM_BUILD_GL_TESTS=ON
 
 make %{?_smp_mflags}
 

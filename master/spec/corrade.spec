@@ -27,7 +27,7 @@ mkdir build && cd build
 cmake ../%{name}-%{version} \
     -DCMAKE_BUILD_TYPE=Debug \
     -DCMAKE_INSTALL_PREFIX=%{_prefix} \
-    -DBUILD_TESTS=ON
+    -DCORRADE_BUILD_TESTS=ON
 
 make %{?_smp_mflags}
 
