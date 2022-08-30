@@ -1,10 +1,10 @@
-# magnum-rpm
+# Magnum RPM Package Toolkit
 
 This toolkit helps with building RPM packages for Magnum C++ engine,
 specifically on Fedora Linux, but should be also compatible with other
 RedHat Linux flavors.
 
-This toolkit was tested on fedora 28/29/30/31/32.
+This toolkit was tested on Fedora Linux 36.
 I should note that only the last version of Magnum was tested
 fully on the latest version of Fedora Linux.
 This means, I did not test the 2020.06 actually works on Fedora 29,

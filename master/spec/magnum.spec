@@ -6,7 +6,9 @@ License:    MIT
 Source:     https://github.com/mosra/%{name}/archive/%{version}.tar.gz#/%{name}-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:   corrade = %{version}, openal-soft, mesa-libGL, mesa-libEGL, SDL2, glfw
-BuildRequires: cmake, git, gcc-c++, openal-soft-devel, mesa-libGL-devel, mesa-libEGL-devel, SDL2-devel, glfw-devel, mesa-vulkan-devel
+BuildRequires: cmake, git, gcc-c++, openal-soft-devel, mesa-libGL-devel, mesa-libEGL-devel, SDL2-devel, glfw-devel
+
+# Fedora 35 also seems to neee the mesa-vulkan-devel package
 
 %description
 Looking for an open-source library that gives you graphics abstraction
