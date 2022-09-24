@@ -17,12 +17,19 @@ dnf install -y fedora-packager rpmdevtools
 ```
 
 ## Build and Installation
+Maybe you will need this, check if you already have these symbolic links.
+
+```
+sudo ln -s /usr/lib64/libvulkan.so.1 /usr/lib64/libvulkan.so
+sudo ln -s /usr/lib/libvulkan.so.1 /usr/lib/libvulkan.so
+```
+
 I am providing a script `bootstrap.sh` that builds all packages and installs
 them on the system in one run. You should have `sudo` access because usage of
 `builddep` and `dnf` (installing packages), but you could also just inspect the
 script yourself and run the commands manually.
 
 ```
-cd 2020.06
+cd master
 ./bootstrap.sh
 ```

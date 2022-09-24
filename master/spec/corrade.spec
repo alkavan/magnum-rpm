@@ -56,6 +56,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/corrade-rc
 %{_includedir}/Corrade
 %{_datadir}/cmake/Corrade
+%{_datadir}/corrade
 
 %changelog
 # TODO: changelog

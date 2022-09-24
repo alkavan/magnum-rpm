@@ -104,6 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/MagnumExternal
 %{_includedir}/MagnumPlugins
 %{_datadir}/cmake/Magnum
+%{_datadir}/magnum
 
 %changelog
 # TODO: changelog
