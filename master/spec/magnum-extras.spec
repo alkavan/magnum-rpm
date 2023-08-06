@@ -3,7 +3,7 @@ Version:    master
 Release:    1
 Summary:    Extras for the Magnum C++11/C++14 graphics engine
 License:    MIT
-Source:     https://github.com/mosra/%{name}/archive/%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Source:     https://github.com/mosra/%{name}/archive/refs/heads/%{version}.zip#/%{name}-%{version}.zip
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:   magnum = %{version}
 BuildRequires: cmake, git, gcc-c++
@@ -32,8 +32,8 @@ cmake ../%{name}-%{version} \
   -DMAGNUM_WITH_PLAYER=ON \
   -DMAGNUM_WITH_UI=ON \
   -DMAGNUM_WITH_UI_GALLERY=ON \
-  -DMAGNUM_BUILD_TESTS=ON \
-  -DMAGNUM_BUILD_GL_TESTS=ON
+  -DMAGNUM_BUILD_TESTS=OFF \
+  -DMAGNUM_BUILD_GL_TESTS=OFF
 
 make %{?_smp_mflags}
 

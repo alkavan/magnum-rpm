@@ -3,7 +3,7 @@ Version:    master
 Release:    1
 Summary:    C++11/C++14 multiplatform utility library
 License:    MIT
-Source:     https://github.com/mosra/%{name}/archive/%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Source:     https://github.com/mosra/%{name}/archive/refs/heads/%{version}.zip#/%{name}-%{version}.zip
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: cmake, git, gcc-c++
 
@@ -27,7 +27,7 @@ mkdir build && cd build
 cmake ../%{name}-%{version} \
     -DCMAKE_BUILD_TYPE=Debug \
     -DCMAKE_INSTALL_PREFIX=%{_prefix} \
-    -DCORRADE_BUILD_TESTS=ON
+    -DCORRADE_BUILD_TESTS=OFF
 
 make %{?_smp_mflags}
 

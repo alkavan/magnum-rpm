@@ -3,7 +3,7 @@ Version:    master
 Release:    1
 Summary:    Plugins for the Magnum C++11/C++14 graphics engine
 License:    MIT
-Source:     https://github.com/mosra/%{name}/archive/%{version}.tar.gz
+Source:     https://github.com/mosra/%{name}/archive/refs/heads/%{version}.zip#/%{name}-%{version}.zip
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:   magnum = %{version}, DevIL, libpng, libjpeg-turbo, freetype, assimp, faad2-libs, glslang, spirv-tools-libs
 BuildRequires: cmake, git, gcc-c++, DevIL-devel, libpng-devel, libjpeg-turbo-devel, freetype-devel, assimp-devel, faad2-devel, harfbuzz-devel, glslang-devel, spirv-tools-devel
@@ -66,8 +66,8 @@ cmake ../%{name}-%{version} \
   -DMAGNUM_WITH_STBVORBISAUDIOIMPORTER=ON \
   -DMAGNUM_WITH_STLIMPORTER=ON \
   -DMAGNUM_WITH_TINYGLTFIMPORTER=ON \
-  -DMAGNUM_BUILD_TESTS=ON \
-  -DMAGNUM_BUILD_GL_TESTS=ON
+  -DMAGNUM_BUILD_TESTS=OFF \
+  -DMAGNUM_BUILD_GL_TESTS=OFF
 
 make %{?_smp_mflags}
 

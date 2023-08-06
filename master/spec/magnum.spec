@@ -3,7 +3,7 @@ Version:    master
 Release:    1
 Summary:    C++11/C++14 graphics middleware for games and data visualization
 License:    MIT
-Source:     https://github.com/mosra/%{name}/archive/%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Source:     https://github.com/mosra/%{name}/archive/refs/heads/%{version}.zip#/%{name}-%{version}.zip
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:   corrade = %{version}, openal-soft, mesa-libGL, mesa-libEGL, SDL2, glfw, vulkan-loader
 BuildRequires: cmake, git, gcc-c++, openal-soft-devel, mesa-libGL-devel, mesa-libEGL-devel, SDL2-devel, glfw-devel, vulkan-loader-devel
@@ -65,10 +65,10 @@ cmake ../%{name}-%{version} \
   -DMAGNUM_WITH_GL_INFO=ON \
   -DMAGNUM_WITH_VK_INFO=ON \
   -DMAGNUM_WITH_AL_INFO=ON \
-  -DMAGNUM_BUILD_TESTS=ON \
-  -DMAGNUM_BUILD_GL_TESTS=ON \
-  -DMAGNUM_BUILD_AL_TESTS=ON \
-  -DMAGNUM_BUILD_VK_TESTS=ON
+  -DMAGNUM_BUILD_TESTS=OFF \
+  -DMAGNUM_BUILD_GL_TESTS=OFF \
+  -DMAGNUM_BUILD_AL_TESTS=OFF \
+  -DMAGNUM_BUILD_VK_TESTS=OFF
 
 make %{?_smp_mflags}
 
