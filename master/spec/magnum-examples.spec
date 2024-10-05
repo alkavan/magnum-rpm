@@ -7,7 +7,7 @@ Source:     https://github.com/mosra/%{name}/archive/refs/heads/%{version}.zip#/
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:   magnum = %{version}, magnum-plugins = %{version}, magnum-integration = %{version}, magnum-extras = %{version}, Box2D
 BuildRequires: cmake, git, gcc-c++, Box2D-devel
-Source1: https://github.com/ocornut/imgui/archive/v1.79.zip
+Source1: https://github.com/ocornut/imgui/archive/v1.88.zip
 
 %description
 Here are various examples for the Magnum C++11/C++14 graphics engine, demonstrating its features, usage and capabilities.
@@ -23,7 +23,7 @@ mkdir build && cd build
 cmake ../%{name}-%{version} \
   -DCMAKE_BUILD_TYPE=Debug \
   -DCMAKE_INSTALL_PREFIX=%{_prefix} \
-  -DIMGUI_DIR=%{_builddir}/imgui-1.79 \
+  -DIMGUI_DIR=%{_builddir}/imgui-1.88 \
   -DMAGNUM_WITH_ANIMATED_GIF_EXAMPLE=ON \
   -DMAGNUM_WITH_ARCBALL_EXAMPLE=ON \
   -DMAGNUM_WITH_AREALIGHTS_EXAMPLE=ON \

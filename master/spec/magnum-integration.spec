@@ -7,7 +7,7 @@ Source:     https://github.com/mosra/%{name}/archive/refs/heads/%{version}.zip#/
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:   magnum = %{version}, bullet, bullet-extras, eigen3
 BuildRequires: cmake, git, gcc-c++, bullet-devel, eigen3-devel glm-devel
-Source1: https://github.com/ocornut/imgui/archive/v1.79.zip
+Source1: https://github.com/ocornut/imgui/archive/v1.88.zip
 
 %description
 Here are integration libraries for Magnum C++11/C++14 graphics engine,
@@ -31,7 +31,7 @@ mkdir build && cd build
 cmake ../%{name}-%{version} \
   -DCMAKE_BUILD_TYPE=Debug \
   -DCMAKE_INSTALL_PREFIX=%{_prefix} \
-  -DIMGUI_DIR=%{_builddir}/imgui-1.79 \
+  -DIMGUI_DIR=%{_builddir}/imgui-1.88 \
   -DMAGNUM_WITH_BULLET=ON \
   -DMAGNUM_WITH_DART=OFF \
   -DMAGNUM_WITH_EIGEN=ON \

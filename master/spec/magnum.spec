@@ -5,8 +5,8 @@ Summary:    C++11/C++14 graphics middleware for games and data visualization
 License:    MIT
 Source:     https://github.com/mosra/%{name}/archive/refs/heads/%{version}.zip#/%{name}-%{version}.zip
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Requires:   corrade = %{version}, openal-soft, mesa-libGL, mesa-libEGL, SDL2, glfw, vulkan-loader
-BuildRequires: cmake, git, gcc-c++, openal-soft-devel, mesa-libGL-devel, mesa-libEGL-devel, SDL2-devel, glfw-devel, vulkan-loader-devel
+Requires:   corrade = %{version}, openal-soft, mesa-libGL, mesa-libEGL, SDL2, glfw, vulkan-loader, glslang
+BuildRequires: cmake, git, gcc-c++, openal-soft-devel, mesa-libGL-devel, mesa-libEGL-devel, SDL2-devel, glfw-devel, vulkan-loader-devel, glslang-devel
 
 # Fedora 35 also seems to neee the mesa-vulkan-devel package
 
@@ -104,7 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/MagnumExternal
 %{_includedir}/MagnumPlugins
 %{_datadir}/cmake/Magnum
-%{_datadir}/magnum
+%{_datadir}/gdb
 
 %changelog
 # TODO: changelog
